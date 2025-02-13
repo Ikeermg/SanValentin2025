@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de San Valentín</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #fff0f5;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 10px;
+    }
+
+    #logo {
+      margin: 10px 0;
+      max-width: 150px;
+    }
+
+    #daily-phrase {
+      background: #ffe6e9;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    #countdown {
+      background: #f8d7da;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      color: #d6336c;
+      margin-top: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #calendar {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .day {
+      padding: 10px;
+      background-color: #ffe6e9;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .day.marked {
+      background-color: #f8d7da;
+    }
+
+    #calendar-photo {
+      margin-top: 10px;
+      max-width: 300px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz San Valentín Blanca</h1>
+  
+  <!-- Aquí colocas el logo con una URL directa -->
+  <img id="logo" src="/Users/ikermunoz/Desktop/Fotos SV/IMG_8927.jpeg" alt="Logo">
+  
+  <div id="header">
+    Iker Blanca | <span id="counter">0 días</span>
+  </div>
+
+  <script>
+    function updateDayCounter() {
+      const startDate = new Date("2024-08-21T00:00:00"); // Fecha inicial
+      const now = new Date();
+      
+      // Calculamos la diferencia en días
+      const diffTime = now - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      // Actualiza el contador en la página
+      document.getElementById('counter').textContent = `${diffDays} días`;
+
+      // Configura un temporizador para actualizarlo a medianoche
+      const nextMidnight = new Date();
+      nextMidnight.setHours(24, 0, 0, 0);
+      const timeToMidnight = nextMidnight - now;
+
+      setTimeout(updateDayCounter, timeToMidnight);
+    }
+
+    updateDayCounter();
+  </script>
+
+  <div id="daily-phrase">Aquí aparecerá la frase diaria.</div>
+  <div id="countdown">Siguiente frase: 00:00:00</div>
+
+  <h2>Galería de Fotos</h2>
+  <div class="gallery">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_8927.jpeg" alt="Foto 1">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/13e05664-571f-4a28-b69e-be665f87c8c8.jpeg" alt="Foto 2">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/883f4025-2f3e-4dd7-9420-2d2dc28dd6ba.jpg" alt="Foto 3">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/4685d095-af8f-4627-9a20-9692e0dd7349.jpg" alt="Foto 4">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/C8B5D1DF-754A-4263-AD4E-1B03628B711E.jpg" alt="Foto 5">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/eebe3007-adae-409d-8d72-fdea98bbb494.jpg" alt="Foto 6">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_0415.jpeg" alt="Foto 7">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_0424.jpeg" alt="Foto 8">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_0428.jpeg" alt="Foto 9">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_8119.jpeg" alt="Foto 10">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/IMG_8122.jpeg" alt="Foto 11">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/ADB9240B-B34F-456D-9D10-078960774784.jpeg" alt="Foto 12">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/0B4F138C-5643-4163-AB44-5A7A33DE4FD7.jpeg" alt="Foto 13">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/92D4670B-B59C-41CE-A164-90246E2134C5.jpeg" alt="Foto 14">
+    <img src="/Users/ikermunoz/Desktop/Fotos SV/230A7230-6BDC-4692-98E5-A74CDCC685DF.jpeg" alt="Foto 15">
+    
+  </div>
+
+  <script>
+    const phrases = [
+    "El amor verdadero no tiene final.",
+      "El corazón que ama siempre es joven.",
+      "El amor es la poesía de los sentidos.",
+      "Cada día es perfecto para decir 'te quiero'.",
+      "Eres mi sueño hecho realidad.",
+      "No hay distancia que nos separe cuando dos corazones se aman.",
+      "El amor es el lenguaje del corazón.",
+      "Tu amor ilumina mis días.",
+      "A tu lado, la vida es más hermosa.",
+      "Eres mi razón de sonreír cada día.",
+      "El amor es el arte de encontrarnos en los detalles.",
+      "No hay mayor felicidad que compartir la vida contigo.",
+      "Cada día a tu lado es un regalo.",
+      "El amor es lo único que crece cuando se comparte.",
+      "Tus abrazos son mi refugio favorito.",
+      "Eres la melodía que alegra mi corazón.",
+      "Tu amor es mi más bonita casualidad.",
+      "El amor no se mira, se siente en el corazón.",
+      "No hay mayor alegría que saber que estás a mi lado.",
+      "Cada segundo contigo es un instante de felicidad.",
+      "Tu amor es el mejor regalo que la vida me ha dado.",
+      "Desde que te conocí, supe que serías mi persona favorita.",
+      "Eres el sueño del que nunca quiero despertar.",
+      "Mi corazón late más fuerte cuando estás cerca.",
+      "Nuestro amor es un cuento sin final.",
+      "En tu mirada encuentro mi hogar.",
+      "Siempre serás mi siempre.",
+      "Eres mi hoy, mi mañana y mi siempre.",
+      "El amor es verte sonreír y saber que soy el motivo.",
+      "Cada beso tuyo es un latido más de mi corazón.",
+      "Me enamoro de ti cada día más.",
+      "Tus abrazos son mi lugar favorito en el mundo.",
+      "Eres la casualidad más bonita que llegó a mi vida.",
+      "El amor es el secreto de la felicidad.",
+      "Amar es encontrar en la felicidad del otro tu propia felicidad.",
+      "Eres mi presente más hermoso y mi futuro más deseado.",
+      "Tú y yo, juntos, hasta el infinito y más allá.",
+      "Tu amor es el mejor poema que la vida ha escrito en mi corazón.",
+      "Desde que te encontré, supe que mi vida tenía sentido.",
+      "Amar es vivir en el corazón de otra persona.",
+      "Eres la persona con la que quiero compartir cada amanecer.",
+      "No hay mejor aventura que la de amarte cada día más.",
+      "Mi amor por ti no tiene límites ni final.",
+      "A tu lado, la vida tiene más colores.",
+      "Te amo más allá de las estrellas.",
+      "El amor es el puente entre dos corazones.",
+      "Eres mi lugar feliz en este mundo.",
+      "Cada día contigo es un capítulo más de nuestra historia de amor.",
+      "Eres mi hogar, mi paz y mi felicidad.",
+      "Tu amor es la melodía que da ritmo a mi vida."
+    ];
+
+    function updatePhraseAndCountdown() {
+      const now = new Date();
+      const next6AM = new Date();
+      next6AM.setHours(6, 0, 0, 0);
+      if (now >= next6AM) {
+        next6AM.setDate(next6AM.getDate() + 1);
+      }
+
+      const timeToNextPhrase = next6AM - now;
+
+      const currentDate = now.toDateString();
+      let usedPhrases = JSON.parse(localStorage.getItem('usedPhrases')) || [];
+
+      if (usedPhrases.length === phrases.length) {
+        usedPhrases = [];
+      }
+
+      let availablePhrases = phrases.filter(phrase => !usedPhrases.includes(phrase));
+      const todayPhrase = availablePhrases[Math.floor(Math.random() * availablePhrases.length)];
+      usedPhrases.push(todayPhrase);
+
+      localStorage.setItem('usedPhrases', JSON.stringify(usedPhrases));
+      document.getElementById('daily-phrase').textContent = todayPhrase;
+
+      updateCountdown(timeToNextPhrase);
+    }
+
+    function updateCountdown(remainingTime) {
+      const hours = String(Math.floor((remainingTime / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((remainingTime / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((remainingTime / 1000) % 60)).padStart(2, '0');
+      document.getElementById('countdown').textContent = `Siguiente frase: ${hours}:${minutes}:${seconds}`;
+
+      setTimeout(() => {
+        updateCountdown(remainingTime - 1000);
+      }, 1000);
+    }
+
+    updatePhraseAndCountdown();
+  </script>
+</body>
+</html>
